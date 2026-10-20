@@ -18,7 +18,8 @@ app = FastAPI()
 static_dir = Path(__file__).parent / "static"
 app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
 
-templates = Jinja2Templates(directory="app/templates")
+templates_dir = Path(__file__).parent / "templates"
+templates = Jinja2Templates(directory=str(templates_dir))
 
 
 def get_db():
